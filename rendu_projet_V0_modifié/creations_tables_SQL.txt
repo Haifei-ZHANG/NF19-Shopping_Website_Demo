@@ -1,0 +1,146 @@
+--membres du groupe1 : 
+--VAYSSE  Benjamin
+--LE BARS Elouan
+--ZHANG   Haifei
+--MOKADEM Houssam Eddine
+
+
+CREATE TABLE administrateur(
+nom VARCHAR(30) NOT NULL,
+prénom VARCHAR(20) NOT NULL,
+email VARCHAR(30) PRIMARY KEY,
+mdp VARCHAR(32) NOT NULL,
+numeroTel VARCHAR(15) NOT NULL,
+dateDeNaissance DATE NOT NULL
+);
+
+
+CREATE TABLE vendeur(
+nom VARCHAR(30) NOT NULL,
+prénom VARCHAR(20) NOT NULL,
+email VARCHAR(30) PRIMARY KEY,
+mdp VARCHAR(32) NOT NULL,
+numeroTel VARCHAR(15) NOT NULL,
+dateDeNaissance DATE NOT NULL
+);
+
+
+CREATE TABLE acheteur(
+nom VARCHAR(30) NOT NULL,
+prénom VARCHAR(20) NOT NULL,
+email VARCHAR(30) PRIMARY KEY,
+mdp VARCHAR(32) NOT NULL,
+numeroTel VARCHAR(15) NOT NULL,
+dateDeNaissance DATE NOT NULL
+);
+
+
+CREATE TABLE articleBlog(
+id SERIAL PRIMARY KEY,
+titre VARCHAR(255) NOT NULL,
+auteur VARCHAR(30) NOT NULL,
+contenu TEXT NOT NULL,
+datePublication DATE NOT NULL,
+FOREIGN KEY(auteur) REFERENCES administrateur(email)
+);
+
+
+CREATE TABLE adresseDeLivraison(
+id SERIAL PRIMARY KEY,
+pays VARCHAR(20) NOT NULL,
+codePostal VARCHAR(15) NOT NULL,
+numéroEtVoie VARCHAR(50) NOT NULL,
+complémentAdresse VARCHAR(80)
+);
+
+
+CREATE TABLE acheteurLivraison(
+acheteur VARCHAR(30) REFERENCES acheteur(email),
+adresse INTEGER REFERENCES adresseDeLivraison(id),
+PRIMARY KEY (acheteur, adresse)
+);
+
+
+CREATE TABLE boutique (
+propriétaire VARCHAR(30) REFERENCES vendeur,
+nom VARCHAR(255) NOT NULL,
+description TEXT,
+adresseWeb VARCHAR(255) PRIMARY KEY
+);
+
+
+CREATE TABLE catégorie(
+nom VARCHAR(50) PRIMARY KEY
+);
+
+
+CREATE TABLE sousCatégorie(
+nom VARCHAR(50) PRIMARY KEY,
+catégorie VARCHAR(50) REFERENCES catégorie NOT NULL 
+);
+
+
+CREATE TABLE deuxSousCatégorie(
+nom VARCHAR(50) PRIMARY KEY,
+sousCatégorie VARCHAR(50) REFERENCES sousCatégorie NOT NULL 
+);
+
+
+CREATE TABLE produit(
+référence SERIAL PRIMARY KEY,
+boutique VARCHAR(255) REFERENCES boutique NOT NULL,
+nom VARCHAR(255) NOT NULL,
+description TEXT,
+prix DECIMAL(6,2) NOT NULL,
+stock INTEGER NOT NULL,
+prixPromo DECIMAL(6,2) DEFAULT NULL,
+dateDébut DATE DEFAULT NULL,
+dateFin DATE DEFAULT NULL,
+promotion BOOLEAN,
+objetUnique BOOLEAN NOT NULL,
+nouveau BOOLEAN NOT NULL,
+deuxSousCatégorie VARCHAR(50) REFERENCES deuxSousCatégorie,
+CHECK((objetUnique=TRUE AND stock<=1) OR (objetUnique=FALSE)),
+CHECK((promotion=TRUE AND prixPromo IS NOT NULL AND dateDébut IS NOT NULL AND dateFin IS NOT NULL AND dateDébut<dateFin AND prixPromo<Prix) OR (promotion=FALSE AND prixPromo IS NULL AND dateDébut IS NULL AND dateFin IS NULL))
+);
+
+
+CREATE TABLE commentaire(
+produit INTEGER REFERENCES produit,
+acheteur VARCHAR(30) REFERENCES acheteur,
+contenu TEXT,
+datePublication DATE NOT NULL,
+note INTEGER NOT NULL,
+CHECK(note BETWEEN 0 AND 5),
+PRIMARY KEY (produit, acheteur)
+);
+
+
+CREATE TABLE listeEnvie(
+produit INTEGER REFERENCES produit,
+acheteur VARCHAR(30) REFERENCES acheteur,
+PRIMARY KEY(produit, acheteur)
+);
+
+
+CREATE TABLE panier(
+id SERIAL PRIMARY KEY,
+acheteur VARCHAR(30) REFERENCES acheteur,
+soldé BOOLEAN DEFAULT FALSE NOT NULL);
+--CHECK (SELECT COUNT (*) FROM panier WHERE soldé = FALSE GROUP BY acheteur) <=1)
+
+CREATE TABLE produitDansPanier(
+panier INTEGER REFERENCES panier,
+produit INTEGER REFERENCES produit,
+quantité INTEGER NOT NULL,
+PRIMARY KEY (panier,produit)
+);
+
+
+
+
+--pour les vues
+
+
+
+

@@ -1,0 +1,83 @@
+--membres de groupe1 : 
+--VAYSSE  Benjamin
+--LE BARS Elouan
+--ZHANG   Haifei
+--MOKADEM Houssam Eddine
+
+
+--Indiquer le nom de l'administrateur portant l'id 1, 
+--ainsi que le titre et la date de publication de tous les articles publi¨¦s par lui.
+--tester les tables : administrateur et blog
+
+SELECT a.nom,a.pr¨¦nom,b.titre, b.datepublication
+FROM blog b, administrateur a
+WHERE a.id = 1;
+
+
+--Lister de toutes les adresses de livraison pour Huard Jane
+--tester les tables : acheteur, adresseDeLivraison, acheteurLivraison
+
+SELECT adl.pays, adl.codepostal, adl.num¨¦roetvoie, adl.compl¨¦mentadresse
+FROM adresseDeLivraison adl, acheteurLivraison  al, acheteur a
+WHERE al.acheteur = a.id AND al.adresse = adl.id AND a.nom = 'Huard' AND a.pr¨¦nom = 'Jane';
+
+
+--Lister  toutes les boutiques dont le propri¨¦taire est n¨¦ apr¨¨s 1990
+--tester les table : vendeur, boutique
+
+SELECT v.nom||' '||v.pr¨¦nom AS propri¨¦taire,b.nom AS boutique
+FROM boutique b JOIN vendeur v ON (b.propri¨¦taire = v.id)
+WHERE V.datedenaissance >= '1990-01-01';
+
+
+--Lister tous les articles en promotion
+--tester la table : produit
+
+SELECT *
+FROM produit
+WHERE type = TRUE;
+
+
+
+--Lister tous les commentaires pour un produit fix¨¦
+--par exelple pour le produit 22
+--tester la table : produit
+
+SELECT *
+FROM commentaire c
+WHERE c.produit = 22;
+
+
+
+--lister tous les produits pour la 2¨¨me sous cat¨¦gorie  "Tables"
+--tester la table : produit
+
+SELECT p.r¨¦f¨¦rence, p.nom, p.prix, p.prixPromo
+FROM produit p
+WHERE p.deuxSousCat¨¦gorie = 'Tables'
+ORDER BY (p.prixPromo, p.prix);
+
+
+--lister tous les produits  pour la sous cat¨¦gorie "Meubles"
+--tester les tables : produit, deuxSousCat¨¦gorie, sousCat¨¦gorie
+
+SELECT p.r¨¦f¨¦rence, p.nom, p.prix, p.prixPromo, p.deuxSousCat¨¦gorie
+FROM produit p JOIN deuxSousCat¨¦gorie dsc ON (p.deuxSousCat¨¦gorie = dsc.nom)
+WHERE dsc.sousCat¨¦gorie = 'Meubles'
+ORDER BY (p.prixPromo, p.prix);
+
+
+--lister tous les produits pour la cat¨¦gorie "La Mode"
+--tester les tables : produit, deuxSousCat¨¦gorie, sousCat¨¦gorie, cat¨¦gorie
+
+SELECT p.r¨¦f¨¦rence, p.nom, p.prix, p.prixPromo, p.deuxSousCat¨¦gorie, sc.nom
+FROM produit p JOIN (deuxSousCat¨¦gorie dsc JOIN sousCat¨¦gorie sc ON(dsc.sousCat¨¦gorie =sc.nom)) ON (p.deuxSousCat¨¦gorie = dsc.nom)
+WHERE sc.cat¨¦gorie = 'La Mode'
+ORDER BY (p.prixPromo, p.prix);
+
+--pour affichier les 5 vues
+SELECT * FROM vNotationBoutique;
+SELECT * FROM vPanierFinal;
+SELECT * FROM vNombreDeProduitChaqueDSC;
+SELECT * FROM vNombreDeProduitChaqueSousCat¨¦gorie;
+SELECT * FROM vNombreDeProduitChaqueCat¨¦gorie;

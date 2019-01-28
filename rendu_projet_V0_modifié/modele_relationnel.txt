@@ -1,0 +1,59 @@
+Membres du Groupe 1
+VAYSSE    Benjamin
+LE BARS    Elouan
+ZHANG    Haifei
+MOKADEM     Houssam Eddine
+
+RELATIONS
+
+administrateur(nom : varchar, prénom : varchar, #email : varchar, mdp : varchar, numéroTel : varchar, dateDeNaissance : date)
+avec tous les attributs NOT NULL
+
+vendeur(nom : varchar, prénom : varchar, #email : varchar, mdp : varchar, numéroTel : varchar, dateDeNaissance : date)
+avec tous les attributs NOT NULL
+
+acheteur (nom : varchar, prénom : varchar, #email : varchar, mdp : varchar, numéroTel : varchar, dateDeNaissance : date)
+avec tous les attributs NOT NULL
+
+articleBlog (#id : integer, titre : varchar, auteur=>administrateur, contenu : text, datePublication : timestamp)
+avec tous les attributs NOT NULL
+
+adresseDeLivraison (#id : integer, pays : varchar,  codePostal : integer, numéroEtVoie : varchar, complémentAdresse : varchar)
+avec tous les attributs NOT NULL excepté complémentAdresse
+
+acheteurLivraison (#acheteur=>acheteur, #adresse=>adresseDeLivraison)
+avec {acheteur, adresse} key
+
+boutique (#adresseWeb : varchar, propriétaire=>vendeur, nom : varchar, description : text) avec propriétaire et nom NOT NULL
+
+catégorie(#nom : varchar) 
+
+sousCatégorie(#nom : varchar, catégorie=>catégorie)
+avec catégorie NOT NULL
+
+deuxSousCatégorie(#nom : varchar, sousCatégorie=> sousCatégorie(nom))
+avec sousCatégorie NOT NULL
+
+produit(#référence : integer, boutique=>boutique, nom : varchar, description : text, prix : decimal, stock : integer, prixPromo : decimal, datedébut : date, dateFin : date, promotion : boolean, objetUnique : boolean, nouveau : boolean, deuxSousCatégorie=>deuxSousCatégorie)
+avec boutique, nom, prix, stock, objetUnique, nouveau NOT NULL,
+(objetUnique=TRUE ET (stock=1 OU stock=0)) OU (objetUnique=FALSE),
+((promotion=TRUE ET (prixPromo, dateDébut, dateFin NOT NULL) ET (dateDébut<dateFin) ET (prixPromo<Prix))
+OU (promotion=FALSE ET prixPromo, dateDébut, dateFin NULL))
+
+commentaire(#produit=>produit, #acheteur=>acheteur, contenu : text, datePublication : date, note : integer) 
+avec note et datePublication NOT NULL, note entre 0 et 5
+
+listeEnvie(#produit=>produit, #acheteur=>acheteur)
+
+panier(#id : integer, acheteur=>acheteur, soldé: boolean) 
+avec acheteur, soldé NOT NULL
+
+produitDansPanier(#panier=>panier, #produit=>produit, quantité : integer) 
+avec quantité NOT NULL
+
+Contraintes
+
+
+PROJECTION (acheteur, email) <> PROJECTION (vendeur,email) <> PROJECTION (administrateur, email)
+
+

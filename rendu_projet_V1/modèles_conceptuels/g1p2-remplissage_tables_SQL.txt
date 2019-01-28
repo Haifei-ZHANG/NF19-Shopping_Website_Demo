@@ -1,0 +1,286 @@
+--membres du groupe1 : 
+--VAYSSE  Benjamin
+--LE BARS Elouan
+--ZHANG   Haifei
+--MOKADEM Houssam Eddine
+
+
+
+
+--administrateurs
+INSERT INTO administrateur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Fauchard','Louis','louis.fauchard@hitmail.fr','jaimelesmeubles','0689667799', '1972/01/22');
+INSERT INTO administrateur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Montelleau','Roger','roger.mtlo@bitmail.com','labuttemonmartre','0726789289','1996/02/21');
+INSERT INTO administrateur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Montignac','Henri','henri.mtgn@bromail.com','allezlesbleus','0622117653','1992/05/01');
+
+
+
+--vendeurs
+INSERT INTO vendeur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Hauchon','Paul','paul.hauchon@zeromail.com','oreiller','0726278653','1990/02/21');
+INSERT INTO vendeur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Guyard','Phillipe','phlp.guyard@bluecontact@fr','lescalierrouge','0654367628','1982/11/04');
+INSERT INTO vendeur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Julliot','Jean-Pierre','jp.julliot@hatmail.fr','rougeblancvert','0676542678','1956/12/19');
+INSERT INTO vendeur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Bertrand','Sylvie','sylvie.bertrand@freezmail.com','orangeisthenewblack','0655268196','1965/01/12');
+INSERT INTO vendeur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Colasson','Marie','mariecol@hmail.com','oldschoolcool','0654456729','1998/02/21');
+
+
+
+--acheteurs
+INSERT INTO acheteur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Huard','Jane','jane.huard@zeromail.com','clavier bleu','0728718653','1990/03/21');
+INSERT INTO acheteur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Guyard','Mathilde','mthld.guyard@bluecontact@fr','lescalierbleu','0654365248','1998/11/04');
+INSERT INTO acheteur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Julliard','Isabelle','isabelle.julliard@hatmail.fr','pommedeterre76','0676777678','1991/12/19');
+INSERT INTO acheteur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Bertrand','Alain','alain.bertrand@freezmail.com','blackisthenewblack','0723468196','1985/01/12');
+INSERT INTO acheteur (nom, prénom, email, mdp, numeroTel, dateDeNaissance) VALUES ('Perdant','Manuel','manuelperdant@hmail.com','lifesucks','0654456711','1990/02/22');
+
+
+--articles du blog
+INSERT INTO articleBlog (titre, auteur, contenu, datePublication) VALUES ('Offrir un cadeau d’occasion, et pourquoi pas, tiens ?','louis.fauchard@hitmail.fr','Un Noël écologique et solidaire ? C’est possible !
+La période des fêtes approche et avec elle, l’appel de la consommation à outrance : chaque année, c’est 61 millions de jouets, généralement venus de l’autre bout du monde et souvent fabriqués dans de bien tristes conditions, qui sont vendus pour les fêtes.
+Pas de panique, chez Label Emmaüs on vous propose de fêter Noël différemment, en préférant l’occasion au neuf, et en mettant vos achats au service de l’insertion professionnelle des personnes en situation d’exclusion !','2018/10/26');
+INSERT INTO articleBlog (titre, auteur, contenu, datePublication) VALUES ('Label Emmaüs au festival Lollapalooza ce weekend !','louis.fauchard@hitmail.fr','Programmation de fou, beau temps au rendez-vous, 10 associations qui seront de la fête à l’espace Lolla Planète, stand organisé pour la deuxième année consécutive par des bénévoles de l’entreprise Live Nation … et nous, et nous, et nous !
+Venez sur notre stand rencontrer Label équipe et nos bénévoles engagés pour une consommation à la fois moderne et solidaire !
+On vous a préparé une braderie de livres et de vinyles comme on les aime, quelques tote bags à chiner pour nous soutenir tout en peaufinant votre summer style, et on vous réserve quelques petites surprises … dévoilées et à gagner sur notre page Facebook et notre compte Instagram ! Oh yeah !','2018/07/20');
+INSERT INTO articleBlog (titre, auteur, contenu, datePublication) VALUES ('Marc, compagnon passionné d''objets','roger.mtlo@bitmail.com','Dans la caverne d’Ali Baba de Marc, on trouve des lampes à pétrole, de l’argenterie, des objets des années 70 et 80, comme des presses agrumes. Marc remet en état les différents objets en les nettoyant mais aussi en les réparant quand cela est possible et nécessaire. Grâce à ses outils, à sa curiosité et à son savoir-faire, il scrute méticuleusement les objets à la recherche des poinçons et des signatures. Avec Patrick, bénévole, ils explorent les recoins de l’atelier pour y dénicher des petits trésors : une lettre signée de la main de Napoléon, de l’argenterie, des plateaux en porcelaine ou encore un lutrin émaillé.','2017/10/27');
+
+
+
+--adresses de livraison
+INSERT INTO adresseDeLivraison (pays, codePostal, numéroEtVoie, complémentAdresse) VALUES ('France','92190','1 Rue des Vertugadins','Bâtiment 6');
+INSERT INTO adresseDeLivraison (pays, codePostal, numéroEtVoie, complémentAdresse) VALUES ('France','72100','12 Rue des Peupliers','Bâtiment 1, 3ème étage');
+INSERT INTO adresseDeLivraison (pays, codePostal, numéroEtVoie) VALUES ('France','75015','118 Avenue Félix Faure');
+INSERT INTO adresseDeLivraison (pays, codePostal, numéroEtVoie) VALUES ('France','75011','17 Avenue Hoche');
+INSERT INTO adresseDeLivraison (pays, codePostal, numéroEtVoie) VALUES ('Andorre','AD500 ','64 Avenue Meritxell');
+
+
+
+
+--adresses par acheteur
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('jane.huard@zeromail.com',1);
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('jane.huard@zeromail.com',2);
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('mthld.guyard@bluecontact@fr',3);
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('isabelle.julliard@hatmail.fr',4);
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('alain.bertrand@freezmail.com',5);
+
+INSERT INTO acheteurLivraison(acheteur, adresse) VALUES ('manuelperdant@hmail.com',5);
+
+
+
+
+--boutiques
+
+INSERT INTO boutique (propriétaire, nom, description, adresseWeb) VALUES ('paul.hauchon@zeromail.com','Emmaüs Saintes Saint Romain','Notre e-boutique vous permet d’acheter en ligne des objets sélectionnés par nos soins, parmi la multitude de livres, vêtements, meubles d''occasion, jouets anciens, bibelots et objets déco, vaisselle, ... que vous pourrez trouvez à la communauté Emmaüs de Saintes dans l''un de nos trois bric-à-brac solidaires.','https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/');
+INSERT INTO boutique (propriétaire, nom, description, adresseWeb) VALUES ('phlp.guyard@bluecontact@fr','Communauté Emmaüs Côtes d''Armor (St Brieuc)','La communauté Emmaüs 22 est avant tout un lieu d''accueil inconditionnel par le travail.Nous avons 2 lieux de vente sur le département : Lannion et Saint Brieuc. Nous avons une capacité d''accueil de 53 compagnons et compagnes et nous sommes aussi une structure d''accueil temporaire pour le 115 et les plans "grand froid".','https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-cotes-darmor-lannion/');
+
+INSERT INTO boutique (propriétaire, nom, description, adresseWeb) VALUES ('jp.julliot@hatmail.fr','Label Emmaüs Nièvre','Bienvenue dans notre mini Bric virtuel, vous y trouverez la vitrine de notre vrai grand Bric que nous vous invitons à venir visiter. On y rencontre des Compagnons et amis qui se relaient pour alimenter chaque jours la boutique en nouveautés. On y trouve : Rétro, disques, bibelots, livres rares et meubles sont à disposition','https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/');
+
+INSERT INTO boutique (propriétaire, nom, description, adresseWeb) VALUES ('sylvie.bertrand@freezmail.com','Emmaüs Mobilier Pro','Emmaüs Mobilier Pro récupère toutes sortes de mobiliers professionnels et vous les propose à prix Emmaüs pour équiper vos espaces de travail dans le confort et l''ergonomie, et surtout sans se ruiner. Bureaux, chaises, armoires métalliques à rideaux, rangements en tous genres, caisson roulants... Tout pour le bureau! Sautez sur ces occasions à prix imbattables.','https://www.label-emmaus.co/fr/nos-boutiques/emp/');
+
+INSERT INTO boutique (propriétaire, nom, description, adresseWeb) VALUES ('mariecol@hmail.com','Comité d''amis Emmaüs Beauvais','Vous êtes friands d’’objets vintages, de high-tech, de vêtements en tout genre, de bibelots, vaisselles et autres objets rares alors vous êtes à la bonne e-adresse. Découvrez nos sélections, dénichez vos pièces « tendance » et composez votre style original.','https://www.label-emmaus.co/fr/nos-boutiques/comite-damis-emmaus-beauvais-emmaus/');
+
+
+--catégories, sous-catégories et 2èmes sous catégories
+
+INSERT INTO catégorie (nom) VALUES ('La Déco');
+INSERT INTO catégorie (nom) VALUES ('Le Mobilier');
+INSERT INTO catégorie (nom) VALUES ('La Mode');
+
+INSERT INTO catégorie (nom) VALUES ('Les Loisirs');
+
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Objets Déco vintage','La Déco');
+
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Appareils électroniques et Machines vintage','La Déco');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Déco Murale','La Déco');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Meubles','Le Mobilier');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('chaussures','La Mode');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('mode femme','La Mode');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('mode homme','La Mode');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('accessoires et maroquinerie','La Mode');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Jeux et Jouets anciens','Les Loisirs');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Matériel de Sport','Les Loisirs');
+
+INSERT INTO sousCatégorie (nom, catégorie) VALUES ('Musique','Les Loisirs');
+
+
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Horloges, Pendules, Réveils','Objets Déco vintage');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Sculptures, Statues','Objets Déco vintage');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Platines, Radios rétro','Appareils électroniques et Machines vintage');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Machines à écrire, Calculatrices anciennes','Appareils électroniques et Machines vintage');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Miroirs','Déco Murale');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Plaques publicitaires','Déco Murale');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Tables','Meubles');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Chevets, Chiffonniers, Commodes','Meubles');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('chaussures enfant','chaussures');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('chaussures et bottes femme','chaussures');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('chaussures et bottes homme','chaussures');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('robes','mode femme');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Maillots de bain','mode femme');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('costumes homme','mode homme');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('vestes, blazers homme','mode homme');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Chapeaux et bonnets','accessoires et maroquinerie');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('bijoux et montres','accessoires et maroquinerie');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Jeux de société','Jeux et Jouets anciens');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Avions','Jeux et Jouets anciens');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Le Ski','Matériel de Sport');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Vélos,  Skate','Matériel de Sport');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('Vinyles','Musique');
+
+INSERT INTO deuxsousCatégorie (nom, sousCatégorie) VALUES ('CDs','Musique');
+
+--produits avec promo
+
+INSERT INTO produit (boutique, nom, description, prix, stock, prixPromo, dateDébut, dateFin, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emp/'
+,'Chevet Style Renaissance','Magnifique meuble blanc avec dorures. Pieds en ivoire rouge. Dimensions : 120x60x45cm',150,10,99,'2018/10/01','2019/01/01',TRUE,FALSE,FALSE,'Chevets, Chiffonniers, Commodes');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, prixPromo, dateDébut, dateFin, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Horloge XXème siècle','Horloge en bois de noisetier, restaurée. Très bon état.',800,1,599,'2016/04/20','2020/01/01',TRUE,TRUE,FALSE,'Horloges, Pendules, Réveils');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, prixPromo, dateDébut, dateFin, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/','Statue Marbre Guillaume II','Attention : Objet fragile non expédiable, à venir chercher sur place (St Brieuc)',2000,1,1500,'2018/01/01','2019/12/29',TRUE,TRUE,FALSE,'Sculptures, Statues');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, prixPromo, dateDébut, dateFin, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/'
+,'Machine à écrire XIXème','Magnifique machine à écrire qui n''est malheureusement plus en l''etat. Idéal pour déco intérieure',100,1,49,'2018/10/01','2020/02/10',TRUE,TRUE,FALSE,'Machines à écrire, Calculatrices anciennes');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, prixPromo, dateDébut, dateFin, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/comite-damis-emmaus-beauvais-emmaus/'
+,'Miroir sans fond','Objet de collection : Miroir ayant appartenu à Donald Trump',100,1,9.99,'2017/01/10','2022/01/10',TRUE,TRUE,FALSE,'Miroirs');
+
+
+
+--produits sans promo
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Panneau pub bière Grimbergen','Dimensions : 1x2m',80,10,FALSE,FALSE,FALSE,'Plaques publicitaires');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Table Bois Mélaminé','Années 70, style vénicien',10,3,FALSE,FALSE,FALSE,'Tables');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emp/'
+,'Table bleue','Dimension : 40x10x60cm',100,10,FALSE,FALSE,TRUE,'Tables');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Table de chevet miroir','Dimension : 40x10x60cm',25,4,FALSE,FALSE,TRUE,'Chevets, Chiffonniers, Commodes');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Chaussures Nike taille 33','Bleu pastel',100,1,FALSE,TRUE,TRUE,'chaussures enfant');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-cotes-darmor-lannion/','Chaussures VEJA taille 39','Bleu pastel',100,1,FALSE,TRUE,TRUE,'chaussures et bottes femme');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-cotes-darmor-lannion/','Chaussures PUMA taille 43','Bleu pastel',100,1,FALSE,TRUE,TRUE,'chaussures et bottes homme');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Robe de mariée noire','Osez le changement',100,3,FALSE,FALSE,TRUE,'robes');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/'
+,'Maillot 2 pièces','Taille : 30+1/2',15,1,FALSE,TRUE,FALSE,'Maillots de bain');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/comite-damis-emmaus-beauvais-emmaus/'
+,'Costume bleu foncé','Taille : 42',75,1,FALSE,TRUE,TRUE,'costumes homme');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/comite-damis-emmaus-beauvais-emmaus/'
+,'Veste blanche','Tache de café énorme sur le dos',100,1,FALSE,TRUE,TRUE,'vestes, blazers homme');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/','Bonnet Lakers','Signé par Kobe Bryan',2000,1,FALSE,TRUE,TRUE,'Chapeaux et bonnets');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Montre TAG Heuer','Comme neuve',12,2,FALSE,FALSE,FALSE,'bijoux et montres');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-cotes-darmor-lannion/','Jeu du vomi version +12ans','Egayez vos soirées. (12-17 ans)',10,2,FALSE,FALSE,FALSE,'Jeux de société');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/comite-damis-emmaus-beauvais-emmaus/'
+,'Réplique du TI Fighter','Echelle 1/100',90,1,FALSE,TRUE,TRUE,'Avions');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Ski Homme','Pour niveau débutant, taille : 1m80 environ',150,1,FALSE,TRUE,TRUE,'Le Ski');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/emmaus-saintes-saint-romain/'
+,'Vélo 24 pouces','Etat pas merveilleux, mais il roule!',9,1,FALSE,TRUE,TRUE,'Vélos,  Skate');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/','Vinyle Bob Sinclar','La base.',9,1,FALSE,TRUE,TRUE,'Vinyles');
+
+INSERT INTO produit (boutique, nom, description, prix, stock, promotion, objetUnique, nouveau, deuxSousCatégorie) VALUES ('https://www.label-emmaus.co/fr/nos-boutiques/communaute-emmaus-nievre-allier-nevers/','Dernier Album Johnny Hallyday','R.I.P Johnny',1,100,FALSE,FALSE,TRUE,'CDs');
+
+
+
+--commentaires clients
+
+INSERT INTO commentaire(produit, acheteur, contenu, datePublication, note) VALUES (1,'isabelle.julliard@hatmail.fr','Très bien.','2018/01/18',4);
+
+INSERT INTO commentaire(produit, acheteur, contenu, datePublication, note) VALUES (17,'mthld.guyard@bluecontact@fr','Incroyable, très utile','2018/02/18',5);
+
+INSERT INTO commentaire(produit, acheteur, contenu, datePublication, note) VALUES (18,'isabelle.julliard@hatmail.fr','Pas terrible','2014/01/01',2);
+
+INSERT INTO commentaire(produit, acheteur, contenu, datePublication, note) VALUES (22,'alain.bertrand@freezmail.com','Qualité médiocre','2017/11/09',1);
+
+INSERT INTO commentaire(produit, acheteur, contenu, datePublication, note) VALUES (2,'alain.bertrand@freezmail.com','Bof.','2018/01/18',3);
+
+--produits présents dans la liste d'envie
+
+INSERT INTO listeEnvie (produit, acheteur) VALUES (15, 'jane.huard@zeromail.com');
+
+INSERT INTO listeEnvie (produit, acheteur) VALUES (11,'mthld.guyard@bluecontact@fr');
+
+INSERT INTO listeEnvie (produit, acheteur) VALUES (8,'isabelle.julliard@hatmail.fr');
+
+INSERT INTO listeEnvie (produit, acheteur) VALUES (9,'alain.bertrand@freezmail.com');
+
+INSERT INTO listeEnvie (produit, acheteur) VALUES (19,'manuelperdant@hmail.com');
+
+-- paniers
+INSERT INTO panier (acheteur, soldé) VALUES ('jane.huard@zeromail.com',FALSE);
+
+INSERT INTO panier (acheteur, soldé) VALUES ('mthld.guyard@bluecontact@fr',FALSE);
+
+INSERT INTO panier (acheteur, soldé) VALUES ('isabelle.julliard@hatmail.fr',FALSE);
+
+INSERT INTO panier (acheteur, soldé) VALUES ('alain.bertrand@freezmail.com',FALSE);
+
+INSERT INTO panier (acheteur, soldé) VALUES ('manuelperdant@hmail.com',FALSE);
+
+
+INSERT INTO panier (acheteur, soldé) VALUES ('jane.huard@zeromail.com',TRUE);
+
+--produits présents dans le panier
+
+INSERT INTO produitDansPanier (panier, produit,quantité) VALUES
+(1,4,1);
+
+INSERT INTO produitDansPanier (panier, produit,quantité) VALUES
+(2,8,13);
+
+INSERT INTO produitDansPanier (panier, produit,quantité) VALUES
+(3,5,2);
+
+
